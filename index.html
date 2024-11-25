@@ -567,13 +567,60 @@
         <!-- end copyrights -->
     </div>
 
-    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    < <!-- whatsapp flotante -->
+        <a href="https://wa.me/TU_NUMERO_DE_TELEFONO" target="_blank" class="whatsapp-float">
+            <i class="fa fa-whatsapp"></i>
+            <span class="whatsapp-tooltip">¿En qué te podemos ayudar?</span>
+        </a>
+        <style>
+            .whatsapp-float {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                bottom: 40px;
+                right: 40px;
+                background-color: #25d366;
+                color: white;
+                border-radius: 50px;
+                text-align: center;
+                font-size: 30px;
+                box-shadow: 2px 2px 5px #999;
+                z-index: 1000;
+                cursor: pointer;
+            }
+            
+            .whatsapp-float i {
+                margin-top: 15px;
+            }
+            /* Estilos para el tooltip */
+            
+            .whatsapp-tooltip {
+                display: none;
+                position: absolute;
+                bottom: 70px;
+                /* Ajusta la posición del tooltip sobre el icono */
+                right: 0;
+                background-color: #333;
+                color: #fff;
+                padding: 8px 12px;
+                border-radius: 5px;
+                font-size: 14px;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+                white-space: nowrap;
+            }
+            /* Mostrar tooltip en hover */
+            
+            .whatsapp-float:hover .whatsapp-tooltip {
+                display: block;
+            }
+        </style>
 
-    <!-- ALL JS FILES -->
-    <script src="js/all.js"></script>
-    <script src="js/responsive-tabs.js"></script>
-    <!-- ALL PLUGINS -->
-    <script src="js/custom.js"></script>
+
+        <!-- ALL JS FILES -->
+        <script src="js/all.js"></script>
+        <script src="js/responsive-tabs.js"></script>
+        <!-- ALL PLUGINS -->
+        <script src="js/custom.js"></script>
 </body>
 
 </html>
