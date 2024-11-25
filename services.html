@@ -292,52 +292,71 @@
 
 
     <!-- whatsapp flotante -->
-    <a href="https://wa.me/TU_NUMERO_DE_TELEFONO" target="_blank" class="whatsapp-float">
-        <i class="fa fa-whatsapp"></i>
-        <span class="whatsapp-tooltip">¿En qué te podemos ayudar?</span>
+    <a href="https://wa.me/TUNUMERO" target="_blank" class="whatsapp-btn">
+        <img src="images/whatsapp_icon.png" alt="Whatsapp">
     </a>
     <style>
-        .whatsapp-float {
+        .whatsapp-btn {
             position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #25D366;
             color: white;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 5px #999;
-            z-index: 1000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
         }
         
-        .whatsapp-float i {
-            margin-top: 15px;
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
-        /* Estilos para el tooltip */
         
-        .whatsapp-tooltip {
-            display: none;
+        .whatsapp-btn::before {
+            content: '';
             position: absolute;
-            bottom: 70px;
-            /* Ajusta la posición del tooltip sobre el icono */
-            right: 0;
-            background-color: #333;
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 5px;
-            font-size: 14px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            white-space: nowrap;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background-color: #25D366;
+            border-radius: 50%;
+            opacity: 0.3;
+            z-index: -1;
+            animation: pulse 2s infinite;
         }
-        /* Mostrar tooltip en hover */
         
-        .whatsapp-float:hover .whatsapp-tooltip {
-            display: block;
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.1;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0.3;
+            }
+        }
+        
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+            fill: white;
         }
     </style>
+
+
+
 
 
     <!-- ALL JS FILES -->
