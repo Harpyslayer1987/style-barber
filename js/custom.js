@@ -1,19 +1,18 @@
-
 (function($) {
     "use strict";
 
-	 /* ==============================================
+    /* ==============================================
     Fixed menu
     =============================================== */
-    
-	$(window).on('scroll', function () {
-		if ($(window).scrollTop() > 50) {
-			$('.top-navbar').addClass('fixed-menu');
-		} else {
-			$('.top-navbar').removeClass('fixed-menu');
-		}
-	});
-	
+
+    $(window).on('scroll', function() {
+        if ($(window).scrollTop() > 50) {
+            $('.top-navbar').addClass('fixed-menu');
+        } else {
+            $('.top-navbar').removeClass('fixed-menu');
+        }
+    });
+
     /* ==============================================
        LOADER -->
     =============================================== */
@@ -22,32 +21,32 @@
         $("#preloader").on(500).fadeOut();
         $(".preloader").on(600).fadeOut("slow");
     });
-	
-	/* ==============================================
-		Scroll to top  
-	============================================== */
-		
-	if ($('#scroll-to-top').length) {
-		var scrollTrigger = 100, // px
-			backToTop = function () {
-				var scrollTop = $(window).scrollTop();
-				if (scrollTop > scrollTrigger) {
-					$('#scroll-to-top').addClass('show');
-				} else {
-					$('#scroll-to-top').removeClass('show');
-				}
-			};
-		backToTop();
-		$(window).on('scroll', function () {
-			backToTop();
-		});
-		$('#scroll-to-top').on('click', function (e) {
-			e.preventDefault();
-			$('html,body').animate({
-				scrollTop: 0
-			}, 700);
-		});
-	}
+
+    /* ==============================================
+    	Scroll to top  
+    ============================================== */
+
+    if ($('#scroll-to-top').length) {
+        var scrollTrigger = 100, // px
+            backToTop = function() {
+                var scrollTop = $(window).scrollTop();
+                if (scrollTop > scrollTrigger) {
+                    $('#scroll-to-top').addClass('show');
+                } else {
+                    $('#scroll-to-top').removeClass('show');
+                }
+            };
+        backToTop();
+        $(window).on('scroll', function() {
+            backToTop();
+        });
+        $('#scroll-to-top').on('click', function(e) {
+            e.preventDefault();
+            $('html,body').animate({
+                scrollTop: 0
+            }, 700);
+        });
+    }
 
     /* ==============================================
      FUN FACTS -->
@@ -70,35 +69,35 @@
         $(this).html('0');
         count($(this));
     });
-	
-	/* ==============================================
+
+    /* ==============================================
      Full width Slider -->
      =============================================== */
-	 
-	$(document).ready(function() {
-		var owl = $('#full-width');
-		$('#full-width').owlCarousel({
-			items: 1,
-			loop:true,
-			nav:true,
-			margin: 0,
-			navText: [
-               "<i class='fa fa-angle-left effect-1'></i>",
-               "<i class='fa fa-angle-right effect-1'></i>"
+
+    $(document).ready(function() {
+        var owl = $('#full-width');
+        $('#full-width').owlCarousel({
+            items: 1,
+            loop: true,
+            nav: true,
+            margin: 0,
+            navText: [
+                "<i class='fa fa-angle-left effect-1'></i>",
+                "<i class='fa fa-angle-right effect-1'></i>"
             ],
-			autoplay:true,
-			smartSpeed:500,
-		});
-		owl.on('changed.owl.carousel', function(event) {
-			var item = event.item.index - 2;    
-			$('h2').removeClass('animated zoomIn');
-			$('p').removeClass('animated fadeInUp');
-			$('.butn').removeClass('animated zoomIn');
-			$('.owl-item').not('.cloned').eq(item).find('h2').addClass('animated zoomIn');			
-			$('.owl-item').not('.cloned').eq(item).find('p').addClass('animated fadeInUp');
-			$('.owl-item').not('.cloned').eq(item).find('.butn').addClass('animated zoomIn');
-		});
-	});
+            autoplay: true,
+            smartSpeed: 500,
+        });
+        owl.on('changed.owl.carousel', function(event) {
+            var item = event.item.index - 2;
+            $('h2').removeClass('animated zoomIn');
+            $('p').removeClass('animated fadeInUp');
+            $('.butn').removeClass('animated zoomIn');
+            $('.owl-item').not('.cloned').eq(item).find('h2').addClass('animated zoomIn');
+            $('.owl-item').not('.cloned').eq(item).find('p').addClass('animated fadeInUp');
+            $('.owl-item').not('.cloned').eq(item).find('.butn').addClass('animated zoomIn');
+        });
+    });
 
     /* ==============================================
      TOOLTIP -->
@@ -186,3 +185,29 @@
     });
 
 })(jQuery);
+
+
+
+
+document.getElementById("contactform").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita el envío predeterminado del formulario
+
+    // Recopila los datos del formulario
+    const formData = {
+        first_name: document.getElementById("first_name").value,
+        last_name: document.getElementById("last_name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        comments: document.getElementById("comments").value
+    };
+
+    // Llama a EmailJS para enviar el correo
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
+        .then(function(response) {
+            console.log("SUCCESS!", response.status, response.text);
+            alert("Correo enviado exitosamente.");
+        }, function(error) {
+            console.log("FAILED...", error);
+            alert("Hubo un error al enviar el correo. Inténtalo de nuevo.");
+        });
+});
