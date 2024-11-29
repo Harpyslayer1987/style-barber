@@ -109,35 +109,50 @@
      CONTACT -->
      =============================================== */
     jQuery(document).ready(function() {
-        $('#contactform').submit(function() {
-            var action = $(this).attr('action');
-            $("#message").slideUp(750, function() {
-                $('#message').hide();
-                $('#submit')
-                    .after('<img src="images/ajax-loader.gif" class="loader" />')
-                    .attr('disabled', 'disabled');
-                $.post(action, {
-                        first_name: $('#first_name').val(),
-                        last_name: $('#last_name').val(),
-                        email: $('#email').val(),
-                        phone: $('#phone').val(),
-                        select_service: $('#select_service').val(),
-                        select_price: $('#select_price').val(),
-                        comments: $('#comments').val(),
-                        verify: $('#verify').val()
-                    },
-                    function(data) {
-                        document.getElementById('message').innerHTML = data;
-                        $('#message').slideDown('slow');
-                        $('#contactform img.loader').fadeOut('slow', function() {
-                            $(this).remove()
+        // Cache los selectores DOM
+        const $contactForm = $('#contactform');
+        const $message = $('#message');
+        const $submit = $('#submit');
+
+        $contactForm.submit(function(e) {
+            e.preventDefault();
+            const action = $(this).attr('action');
+
+            // Reducir tiempo de animación
+            $message.slideUp(300, function() {
+                $message.hide();
+                $submit.prop('disabled', true)
+                    .after('<img src="images/ajax-loader.gif" class="loader" />');
+
+                // Recoger datos del formulario de manera más eficiente
+                const formData = {
+                    first_name: $('#first_name').val(),
+                    last_name: $('#last_name').val(),
+                    email: $('#email').val(),
+                    phone: $('#phone').val(),
+                    select_service: $('#select_service').val(),
+                    select_price: $('#select_price').val(),
+                    comments: $('#comments').val(),
+                    verify: $('#verify').val()
+                };
+
+                $.post(action, formData)
+                    .done(function(data) {
+                        $message.html(data).slideDown(300);
+                        $contactForm.find('img.loader').fadeOut(200, function() {
+                            $(this).remove();
                         });
-                        $('#submit').removeAttr('disabled');
-                        if (data.match('success') != null) $('#contactform').slideUp('slow');
-                    }
-                );
+                        $submit.prop('disabled', false);
+
+                        if (data.includes('success')) {
+                            $contactForm.slideUp(300);
+                        }
+                    })
+                    .fail(function() {
+                        $message.html('Error en el envío').slideDown(300);
+                        $submit.prop('disabled', false);
+                    });
             });
-            return false;
         });
     });
 
@@ -185,29 +200,3 @@
     });
 
 })(jQuery);
-
-
-
-
-document.getElementById("contactform").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita el envío predeterminado del formulario
-
-    // Recopila los datos del formulario
-    const formData = {
-        first_name: document.getElementById("first_name").value,
-        last_name: document.getElementById("last_name").value,
-        email: document.getElementById("email").value,
-        phone: document.getElementById("phone").value,
-        comments: document.getElementById("comments").value
-    };
-
-    // Llama a EmailJS para enviar el correo
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
-        .then(function(response) {
-            console.log("SUCCESS!", response.status, response.text);
-            alert("Correo enviado exitosamente.");
-        }, function(error) {
-            console.log("FAILED...", error);
-            alert("Hubo un error al enviar el correo. Inténtalo de nuevo.");
-        });
-});

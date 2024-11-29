@@ -48,9 +48,9 @@
                 <span class="leaf4"></span>
             </div>
             <div class="mus">
-                <img src="images/lode-img.png" alt="" />
+                <img src="images/lode-img.png" alt="Cargando..." />
             </div>
-            <span class="loading" data-name="Loading">INDAHOUSEBS Loading</span>
+            <span class="loading" data-name="Loading">Cargando...</span>
         </div>
     </div>
     <!-- end loader -->
@@ -356,6 +356,39 @@
             });
         })(jQuery);
     </script>
+
+    <script>
+        // Función para ocultar el loader
+        function hideLoader() {
+            const loader = document.getElementById('preloader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }
+        }
+
+        // Evento cuando el DOM está listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ocultar loader después de 2 segundos máximo
+            setTimeout(hideLoader, 2000);
+        });
+
+        // Evento cuando la página está completamente cargada
+        window.addEventListener('load', function() {
+            hideLoader();
+        });
+
+        // Fallback por si algo falla
+        setTimeout(hideLoader, 5000); // Máximo 5 segundos de espera
+    </script>
+
+    <style>
+        #preloader {
+            transition: opacity 0.5s ease-out;
+        }
+    </style>
 
 </body>
 
