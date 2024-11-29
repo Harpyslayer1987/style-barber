@@ -50,15 +50,15 @@
             <div class="mus">
                 <img src="images/lode-img.png" alt="" />
             </div>
-            <span class="loading" data-name="Loading">SMBarber Loading</span>
+            <span class="loading" data-name="Loading">Cargando SMBarber</span>
         </div>
     </div>
     <!-- end loader -->
     <!-- END LOADER -->
 
-    <div class="top-add alert alert-light alert-dismissible">
+    <div class="top-add alert alert-light alert-dismissible" style="display: none;" id="successAlert">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Success!</strong> This alert box could indicate a successful or positive action.
+        <strong>¡Éxito!</strong> El mensaje ha sido enviado correctamente.
     </div>
     <!-- Start header -->
     <header class="top-navbar">
@@ -74,12 +74,12 @@
 				</button>
                 <div class="collapse navbar-collapse" id="navbars-rs-food">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="services.html">Our Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="barbers.html">Our Barbers</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="appointment.html">Appointment</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Nuestros Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">Sobre Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="barbers.html">Nuestros Barberos</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="appointment.html">Citas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
                     </ul>
                 </div>
             </div>
@@ -99,13 +99,13 @@
                             </div>
 
                             <div class="title--heading">
-                                <h1>Contact</h1>
+                                <h1>Contacto</h1>
                             </div>
                             <div class="clearfix"></div>
 
                             <ol class="breadcrumb">
-                                <li><a href="index-3.html">Home</a></li>
-                                <li class="active">Contact</li>
+                                <li><a href="index-3.html">Inicio</a></li>
+                                <li class="active">Contacto</li>
                             </ol>
                         </div>
                         <!-- .title end -->
@@ -119,8 +119,8 @@
             <div class="container">
                 <div class="section-title row text-center">
                     <div class="col-md-8 offset-md-2">
-                        <small>LET'S MAKE AN CONTACT FOR YOUR LIFE</small>
-                        <h3>Contact</h3>
+                        <small>CONTACTA CON NOSOTROS</small>
+                        <h3>Contacto</h3>
                     </div>
                 </div>
                 <!-- end title -->
@@ -132,22 +132,22 @@
                             <form id="contactform" class="row" action="contact.php" name="contactform" method="post">
                                 <fieldset class="row row-fluid">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name">
+                                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Nombre">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name">
+                                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Apellidos">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="Tu Email">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
+                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Tu Teléfono">
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="Give us more details.."></textarea>
+                                        <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="Danos más detalles.."></textarea>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                                        <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block subt">Submit</button>
+                                        <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block subt">Enviar</button>
                                     </div>
                                 </fieldset>
                             </form>
@@ -174,14 +174,14 @@
                 <div class="footer-distributed">
                     <div class="footer-left">
                         <p class="footer-links">
-                            <a href="#">Home</a>
+                            <a href="#">Inicio</a>
                             <a href="#">Blog</a>
-                            <a href="#">Pricing</a>
-                            <a href="#">About</a>
-                            <a href="#">Faq</a>
-                            <a href="#">Contact</a>
+                            <a href="#">Precios</a>
+                            <a href="#">Sobre Nosotros</a>
+                            <a href="#">Preguntas Frecuentes</a>
+                            <a href="#">Contacto</a>
                         </p>
-                        <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">StyleBarber</a> Design By : <a href="https://html.design/">html design</a></p>
+                        <p class="footer-company-name">Todos los derechos reservados. &copy; 2018 <a href="#">StyleBarber</a> Diseñado por: <a href="https://html.design/">html design</a></p>
                     </div>
                 </div>
             </div>
@@ -262,6 +262,24 @@
     <script src="js/map.js"></script>
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
+    <script>
+        document.getElementById('contactform').addEventListener('submit', function(e) {
+            e.preventDefault(); // Previene el envío normal del formulario
+
+            // Aquí puedes agregar la lógica para enviar el formulario mediante AJAX
+
+            // Mostrar la alerta
+            document.getElementById('successAlert').style.display = 'block';
+
+            // Opcional: ocultar la alerta después de 3 segundos
+            setTimeout(function() {
+                document.getElementById('successAlert').style.display = 'none';
+            }, 3000);
+
+            // Limpiar el formulario
+            this.reset();
+        });
+    </script>
 </body>
 
 </html>
